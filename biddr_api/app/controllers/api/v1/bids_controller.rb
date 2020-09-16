@@ -1,5 +1,7 @@
 class Api::V1::BidsController < ApplicationController
-  before_action :set_bid, only: [:show, :update, :destroy]
+  # before_action :set_bid, only: [:show, :update, :destroy]
+  before_action :authenticate_user!, only: [:create]
+  before_action :authorize_user!
 
   # GET /bids
   def index
